@@ -22,10 +22,15 @@
 
             <p>{{bug.body}}</p>
         </div>
+        <div class="row">
+            <div class="col">
+                <h3 class="m-3">Notes:</h3>
+                <NotesComponent v-for="note in notes" :key="note.id" :noteProp="note" />
+            </div>
+        </div>
 
-        <NotesComponent v-for="note in notes" />
-        <form class="form-group m-3" @submit.prevent="newNote">
-            <input type="text" placeholder="Note" v-model="newNote.body" style="width: 100%">
+        <form class="form-group m-3" @submit.prevent="addNote">
+            <input type="text" placeholder="Add Note" v-model="newNote.body" style="width: 100%">
             <span class="float-right"><button type="submit" class="btn btn-primary">Attach
                     Note</button></span>
         </form>
@@ -79,7 +84,12 @@
             isCreator() {
                 return this.$store.state.profile.email == this.bug.creatorEmail
             },
-
+            notes() {
+                this.$store.state.notes
+            },
+        },
+        components: {
+            NotesComponent
         }
     }
 </script>

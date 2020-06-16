@@ -22,7 +22,7 @@ export class NotesController extends BaseController {
         } catch (error) { next(error) }
     }
 
-    async editList(req, res, next) {
+    async editNote(req, res, next) {
         try {
             let data = await notesService.editNote(req.params.id, req.userInfo.email, req.body)
             return res.send(data)
@@ -32,7 +32,7 @@ export class NotesController extends BaseController {
     async deleteNote(req, res, next) {
         try {
             await notesService.deleteNote(req.params.id)
-            return res.send("Successfully deleted")
+            return res.send("Successfully delerrrrrrted")
         } catch (error) { next(error) }
     }
 }

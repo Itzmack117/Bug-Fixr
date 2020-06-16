@@ -29,7 +29,7 @@
               </tr>
             </thead>
             <tbody>
-              <BugsComponent v-for="bug in bugs" :key="bug.id" :bugProp="bug"></BugsComponent>
+              <BugsComponent v-for="bug in bugs" :key="bug.id" :bugProp="bug" />
             </tbody>
           </table>
         </div>

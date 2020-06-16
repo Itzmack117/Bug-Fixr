@@ -33,7 +33,9 @@ export default new Vuex.Store({
       state.activeBug = data
     },
     setNotes(state, data) {
-      console.log("notes set")
+      state.Notes = data
+    },
+    deleteNote(state, data) {
       state.Notes = data
     },
   },
@@ -90,10 +92,24 @@ export default new Vuex.Store({
         console.error(error);
       }
     },
-    async addNote({ commit, dispatch }, data) {
+    async createNote({ commit, dispatch }, data) {
       try {
-        let res = await api.post('notes',)
+        console.log(data);
+
+        let res = await api.post('notes/', data)
+        dispatch('getNotesbyBugId', data.bugId)
+      } catch (error) {
+        console.error(error);
       }
-  }
+    },
+    async deleteNote({ commit, dispatch }, note) {
+      try {
+        let res = await api.delete('notes/' + note.id)
+        commit("deleteNote", res.data)
+        dispatch('getNotesbyBugId', note.bugId)
+      } catch (error) {
+        console.error(error);
+      }
+    }
   }
 });

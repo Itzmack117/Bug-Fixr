@@ -14,15 +14,5 @@
     export default {
         name: "bugsComponent",
         props: ["bugProp"],
-        mounted() {
-            this.$store.dispatch("getBugs");
-            console.log("bugs retrieved", this.$store.state.bugs);
-        },
-
-        computed: {
-            bugs() {
-                return this.$store.state.bugs
-            }
-        }
     }
 </script>

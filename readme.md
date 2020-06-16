@@ -121,7 +121,7 @@ Delete
   [X] Home shows all bugs
   [X]BugDetails displays the details of a bug and its Notes
 - Bugs can be filtered by their status
-[X]Creating a new bug automatically navigates to the BugDetails view
+[]Creating a new bug automatically navigates to the BugDetails view
 [X] Navbar to allow navigating back to Home view
 [X] Styling Indication on main page that bug is closed (color, strike-through, etc.)
 [X] Bugs display last modified date
