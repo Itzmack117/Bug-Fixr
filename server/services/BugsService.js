@@ -21,9 +21,9 @@ class BugsService {
     }
 
     async edit(id, update) {
-        let data = await dbContext.Bugs.findOneAndUpdate({ _id: id }, update, { new: true })
+        let data = await dbContext.Bugs.findOneAndUpdate({ _id: id, closed: false }, update, { new: true })
         if (!data) {
-            throw new BadRequest("Invalid ID");
+            throw new BadRequest("Invalid ID or Bug Report Closed");
         }
         return data;
     }

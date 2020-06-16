@@ -2,10 +2,7 @@
     <div class="NotesComponent m-3 row">
         <div class="col">
             <h4>{{noteProp.body}}</h4> <span v-if="isCreator"><button class="btn btn-warning float-right"
-                    v-if="deleteBtn" @click="deleteBtn=false">Delete</button><button class="btn btn-warning float-right"
-                    v-if="deleteBtn" @click="deleteNote">
-                    ARE YOU
-                    SURE?</button></span>
+                    @click="deleteNote">Delete</button></span>
             <h6>{{noteProp.creatorEmail}}</h6>
         </div>
     </div>
@@ -17,8 +14,7 @@
         props: ["noteProp"],
         data() {
             return {
-                deleteBtn: true,
-                conDelete: false
+
             }
         },
         mounted() {
@@ -26,7 +22,9 @@
         },
         methods: {
             deleteNote() {
-                this.$store.dispatch('deleteNote', noteProp)
+                let r = window.confirm("Delete the Note?")
+                if (r == true) { this.$store.dispatch('deleteNote', this.noteProp) }
+
             },
 
         },

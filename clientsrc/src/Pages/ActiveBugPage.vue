@@ -82,7 +82,7 @@
                 return this.$store.state.activeBug
             },
             notes() {
-                return this.$store.state.notes
+                return this.$store.state.Notes
             },
             isCreator() {
                 return this.$store.state.profile.email == this.bug.creatorEmail
