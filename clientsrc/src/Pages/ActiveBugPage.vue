@@ -25,9 +25,9 @@
         <div class="row">
             <div class="col">
                 <h3 class="m-3">Notes:</h3>
-                <NotesComponent v-for="note in notes" :key="note.id" :noteProp="note" />
             </div>
         </div>
+        <NotesComponent v-for="note in notes" :key="note.id" :noteProp="note" />
 
         <form class="form-group m-3" @submit.prevent="addNote">
             <input type="text" placeholder="Add Note" v-model="newNote.body" style="width: 100%">
@@ -55,7 +55,10 @@
                 bugEdit: {
                     body: "",
                 },
-
+                note: {
+                    body: '',
+                    creatorEmail: '',
+                },
                 editForm: false,
                 confirmBtn: false
             }
@@ -83,9 +86,6 @@
             },
             isCreator() {
                 return this.$store.state.profile.email == this.bug.creatorEmail
-            },
-            notes() {
-                this.$store.state.notes
             },
         },
         components: {

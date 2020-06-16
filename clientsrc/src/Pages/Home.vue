@@ -60,7 +60,7 @@
     methods: {
       reportBug() {
         this.$store.dispatch("reportBug", this.newBug)
-        bugForm = false
+        this.bugForm = false
       }
     },
 

@@ -33,6 +33,7 @@ export default new Vuex.Store({
       state.activeBug = data
     },
     setNotes(state, data) {
+      console.log(data)
       state.Notes = data
     },
     deleteNote(state, data) {
