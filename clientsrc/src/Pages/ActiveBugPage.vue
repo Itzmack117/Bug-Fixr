@@ -19,7 +19,7 @@
                             @click="closeReport">Confirm?</button></span></span>
             </div>
             <h6 class="justify-content-end">{{bug.creatorEmail}}</h6>
-
+            <!--  -->
             <p>{{bug.body}}</p>
         </div>
         <div class="row">
